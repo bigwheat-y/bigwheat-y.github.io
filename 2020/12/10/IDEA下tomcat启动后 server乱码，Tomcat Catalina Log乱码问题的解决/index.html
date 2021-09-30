@@ -158,26 +158,26 @@
 <pre><code>Windows系统的cmd是GBK编码的，所以IDEA的下方log输出的部分的编码也是GBK的，然而Tomcat 9.0 版本默认log输出是UTF-8编码的，采用了两种不同的编码方式就会导致乱码
 </code></pre>
 <h2 id="2-解决方案（推荐使用方法2）"><a href="#2-解决方案（推荐使用方法2）" class="headerlink" title="2.解决方案（推荐使用方法2）"></a>2.解决方案（推荐使用方法2）</h2><h3 id="方法1：修改Tomcat-日志输出为GBK编码，与系统CMD匹配"><a href="#方法1：修改Tomcat-日志输出为GBK编码，与系统CMD匹配" class="headerlink" title="方法1：修改Tomcat 日志输出为GBK编码，与系统CMD匹配"></a>方法1：修改Tomcat 日志输出为GBK编码，与系统CMD匹配</h3><p>先打开tomcat的安装目录,编辑 conf 目录下的 logging.properties</p>
-<p><img src="https://img2018.cnblogs.com/blog/1486229/201904/1486229-20190426104812464-543314471.png" alt="img"></p>
+<p><img src="img/1486229-20190426104812464-543314471.png" alt="img"></p>
 <p>用notepad++ 打开，把里面的UTF-8 通通改成 GBK，大家都是GBK编码，那就不会乱码了</p>
-<p><img src="https://img2018.cnblogs.com/blog/1486229/201904/1486229-20190426105029259-1452567340.png" alt="img"></p>
+<p><img src="img/1486229-20190426105029259-1452567340.png" alt="img"></p>
 <p>保存，重启Tomcat，即可生效。</p>
 <h3 id="方法2：修改IDEA运行环境为UTF-8编码"><a href="#方法2：修改IDEA运行环境为UTF-8编码" class="headerlink" title="方法2：修改IDEA运行环境为UTF-8编码"></a>方法2：修改IDEA运行环境为UTF-8编码</h3><p>点击顶部–帮助–编辑自定义VM选项</p>
-<p><img src="https://img2018.cnblogs.com/blog/1486229/201909/1486229-20190911163635258-685501305.png" alt="img"></p>
+<p><img src="img/1486229-20190911163635258-685501305.png" alt="img"></p>
 <p>然后把UTF-8加进去</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dfile.encoding=UTF-8</span><br></pre></td></tr></table></figure>
 
 
 
-<p><img src="https://img2018.cnblogs.com/blog/1486229/201909/1486229-20190911163806034-798735150.png" alt="img"></p>
+<p><img src="img/1486229-20190911163806034-798735150.png" alt="img"></p>
 <p>最后一步，把Tomcat也指定UTF-8,编辑 Tomcat运行配置</p>
-<p><img src="https://img2018.cnblogs.com/blog/1486229/201909/1486229-20190911164047715-111780368.png" alt="img"></p>
+<p><img src="img/1486229-20190911164047715-111780368.png" alt="img"></p>
 <p>在虚拟机选项中加入 </p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Dfile.encoding=UTF-8</span><br></pre></td></tr></table></figure>
 
 
 
-<p><img src="https://img2018.cnblogs.com/blog/1486229/201909/1486229-20190911163924592-37815115.png" alt="img"></p>
+<p><img src="img/1486229-20190911163924592-37815115.png" alt="img"></p>
 <p>改完之后，重启IDEA即可。</p>
 
         </div>
